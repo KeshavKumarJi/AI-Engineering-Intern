@@ -56,16 +56,4 @@ To bypass these architectural limitations in production systems, we employ three
 * **Strategy 3: Token Anchoring & Strict Serialization (Prompt Engineering Layer)**
   * To eliminate reasoning failures caused by tokenization anomalies, we strictly isolate structured data and variables using strict XML or JSON delimiters. Furthermore, we inject cross-checking token anchors into the system prompt (e.g., *"Break down all numerical inputs into comma-separated digits before performing operations"*). This forces the tokenizer into predictable boundaries, preventing sub-token fragmentation from skewing the attention weights
  
-  *         0
-   ┌─────────┐
-   │         ▼
- ►((q₀))──1──►(q₁)
-   ▲   ▲      │  ▲
-   │   │ 0    │  │ 1
-   │   └──────┘  │
-   │             │
-   │    0        │
-   │  ┌──────┐   │
-   └──│(q₂)  │◄──┘
-      └──┬───┘
-         │ 1 (self-loop)
+
